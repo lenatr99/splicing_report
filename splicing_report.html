@@ -7961,7 +7961,7 @@ at 0 and 16 h uses the retained libraries, and section 7 has the full bulk time 
 </div>
 </div>
 </details>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput" id="cell-id=6ab0354b7a5d">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput" id="cell-id=212d5a5d368d">
 </div>
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput" id="cell-id=f66eb7cf2db0">
 <div class="jp-Cell-outputWrapper">
@@ -8826,6 +8826,85 @@ show more broadly how much the result depends on gene selection, but neither ran
 </tbody>
 </table>
 <p>Round brackets: lowest and highest of the five cell subsets, not a confidence interval. Square brackets: 95% range from resampling genes.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ecbe67c1a471">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>What is behind the association with shorter genes?</strong> The matching above accounts only for exon counts. We therefore
+modelled whether a gene has intronic evidence, using the same cases and controls and also accounting for intron number and total intron
+length. The association with shorter genes remains. The table gives the change in the odds of intronic evidence for each doubling of gene span;
+1 means no association.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th style="text-align:right">Hour</th>
+<th style="text-align:right">Own exon counts</th>
+<th style="text-align:right">Poly(A) counts instead</th>
+<th style="text-align:right">Own exon counts, adding last-exon length</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Poly(A)</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0.57 [0.53–0.61]</td>
+<td style="text-align:right">not possible</td>
+<td style="text-align:right">0.71 [0.68–0.75]</td>
+</tr>
+<tr>
+<td>Poly(A)</td>
+<td style="text-align:right">16</td>
+<td style="text-align:right">0.58 [0.57–0.60]</td>
+<td style="text-align:right">not possible</td>
+<td style="text-align:right">0.70 [0.67–0.72]</td>
+</tr>
+<tr>
+<td>snapTotal</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0.42, 0.45</td>
+<td style="text-align:right">0.87, 0.87</td>
+<td style="text-align:right">0.47, 0.54</td>
+</tr>
+<tr>
+<td>snapTotal</td>
+<td style="text-align:right">16</td>
+<td style="text-align:right">0.41, 0.39</td>
+<td style="text-align:right">0.92, 0.96</td>
+<td style="text-align:right">0.51, 0.44</td>
+</tr>
+<tr>
+<td>Bulk</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0.51, 0.53</td>
+<td style="text-align:right">1.02, 0.95</td>
+<td style="text-align:right">0.60, 0.60</td>
+</tr>
+<tr>
+<td>Bulk</td>
+<td style="text-align:right">16</td>
+<td style="text-align:right">0.48</td>
+<td style="text-align:right">0.95</td>
+<td style="text-align:right">0.55</td>
+</tr>
+</tbody>
+</table>
+<p>Poly(A): geometric mean of three replicates with 95% confidence interval, which does not cover shared library effects. snapTotal and bulk: one value for each plate or library.</p>
+<p><strong>In snapTotal and bulk, the association seems to come mostly from how we count.</strong> Introns are only 10%–12% of a
+typical gene's span, so gene span is mostly exon length. Among genes with similar poly(A) counts, doubling exon length multiplies exon counts by about
+1.8–2.0 in these methods. A gene with long exons therefore seems to have fewer RNA molecules at the same exon count, and
+fewer chances to show an intronic read. When poly(A) counts measure expression instead, the association mostly disappears.</p>
+<p><strong>This does not explain poly(A).</strong> The same check cannot be applied to poly(A) itself. Using bulk exon counts divided by exon length as the measure of expression leaves the
+association in place (0.55 at 0 h and 0.59 at 16 h), although that measure largely tracks poly(A) counts. Poly(A) reads come mostly from near the
+3′ end, so introns in short genes may be easier to reach. Accounting for the closest intron's distance from the 3′ end (last-exon length) weakens the association but does not remove it. The cause of the rest is unknown.</p>
+<p>These checks use counts from both strands and are not adjusted for multiple comparisons. Poly(A) counts are only an approximate measure of RNA molecules, and they come from different libraries.
+These results are associations and do not measure how fast genes are spliced.</p>
 </div>
 </div>
 </div>
